@@ -116,8 +116,24 @@ document.querySelectorAll('.career-btn').forEach(button => {
         });
         if(speciality === 'PO'){
             select.value = 'UX/UI';
+        } else if(speciality === 'QA'){
+            select.value = 'QA';
         } else {
-            select.value = speciality;
+            select.value = 'UX/UI';
+        }
+    });
+});
+
+document.querySelector('select').addEventListener('change', function(event){
+    let speciality = event.target.value;
+    let btns = document.querySelectorAll('.career-btn');
+    btns.forEach(btn => {
+        if(btn.id === speciality){
+            btn.classList.add('selected');
+            btn.innerText = 'Выбрано';
+        } else {
+            btn.classList.remove('selected');
+            btn.innerText = 'Выбрать';
         }
     });
 });
