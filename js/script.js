@@ -115,11 +115,11 @@ document.querySelectorAll('.career-btn').forEach(button => {
             }
         });
         if(speciality === 'PO'){
-            select.value = 'UX/UI';
+            select.value = 'UI';
         } else if(speciality === 'QA'){
             select.value = 'QA';
         } else {
-            select.value = 'UX/UI';
+            select.value = 'UI';
         }
     });
 });
