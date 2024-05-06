@@ -45,6 +45,9 @@ document.querySelector('.contact-close').addEventListener('click', function(){
     document.body.classList.remove('lock');
 });
 
+
+// Отправка данных
+
 document.querySelector('.form').addEventListener('submit', function(event){
     event.preventDefault();
     let form = event.target;
@@ -90,3 +93,32 @@ document.querySelector('.form').addEventListener('submit', function(event){
 //     };
 //     xhr.send(JSON.stringify(data));
 // });
+
+
+
+// Взаимодействие карьерных программ с формой
+
+
+
+document.querySelectorAll('.career-btn').forEach(button => {
+    button.addEventListener('click', function(event){
+        let speciality = event.currentTarget.id;
+        let select = document.querySelector('select');
+        let btns = document.querySelectorAll('.career-btn');
+        btns.forEach(btn => {
+            if(btn.id === speciality){
+                btn.classList.add('selected');
+                btn.innerText = 'Выбрано';
+            } else {
+                btn.classList.remove('selected');
+                btn.innerText = 'Выбрать';
+            }
+        });
+        if(speciality === 'PO'){
+            select.value = 'UX/UI';
+        } else {
+            select.value = speciality;
+        }
+    });
+});
+
