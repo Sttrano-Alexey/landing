@@ -1509,6 +1509,32 @@ footer{
     background-color: #f7bc1a;
 }
 
+
+.contact-popup{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #12121275;
+    z-index: 997;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(10px);
+    pointer-events: none;
+}
+
+.contact-popup.open{
+    opacity: 1;
+    pointer-events: all;
+}
+.contact-popup-title svg{
+    max-width: 45px;
+    max-height: 45px;
+}
 .contact-popup-title{
     font-size: 24px;
     color: var(--txt-gray);
@@ -1526,28 +1552,46 @@ footer{
     stroke: var(--txt-gray);
     cursor: pointer;
 }
-.contact-popup{
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    right: 0;
-    background-color: #121212;
-    z-index: 997;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    right: -103%;
-    transition: all 0.2s ease;
-}
-.contact-popup.open{
-    opacity: 1;
-    right: 0;
-}
+
 .contact-popup-form{
     width: 100%;
     background-color: var(--card-bg);
     padding: 40px;
     border-radius: 30px;
+}
+
+@media (max-width: 700px) {
+.contact-popup{
+    right: -103%;
+    
+}
+.contact-popup.open{
+    opacity: 1;
+    right: 0;
+}
+    
+.contact-popup-title{
+    font-size: 24px;
+    color: var(--txt-gray);
+    margin-bottom: 24px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.contact-popup-title svg{
+    max-width: 45px;
+    max-height: 45px;
+}
+.contact-popup-title svg path{
+    stroke: var(--txt-gray);
+    cursor: pointer;
+}
+
+.contact-popup-form{
+    width: 100%;
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: 30px;
+}
 }

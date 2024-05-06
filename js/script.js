@@ -45,3 +45,48 @@ document.querySelector('.contact-close').addEventListener('click', function(){
     document.body.classList.remove('lock');
 });
 
+document.querySelector('.form').addEventListener('submit', function(event){
+    event.preventDefault();
+    let form = event.target;
+    let name = form.querySelector('input[type="text"]').value;
+    let email = form.querySelector('input[type="email"]').value;
+    let telegram = form.querySelector('.telegram').value;
+    let speciality = form.querySelector('select').value;
+    let data = {
+        name,
+        email,
+        telegram,
+        speciality
+    };
+    console.log('отправлено на сервер');
+    console.log('данные:', data);
+});
+
+
+
+// document.querySelector('.form').addEventListener('submit', function(event){
+//     event.preventDefault();
+//     let form = event.target;
+//     let name = form.querySelector('input[type="text"]').value;
+//     let email = form.querySelector('input[type="email"]').value;
+//     let telegram = form.querySelector('.telegram').value;
+//     let speciality = form.querySelector('select').value;
+//     let xhr = new XMLHttpRequest();
+//     xhr.open('POST', form.action, true);
+//     xhr.setRequestHeader('Content-Type', 'application/json');
+//     xhr.onreadystatechange = function() {
+//         if (xhr.readyState === 4 && xhr.status === 200) {
+//             console.log('отправлено на сервер');
+//             console.log('данные:', {name, email, telegram, speciality});
+//         } else if (xhr.status !== 200) {
+//             console.log('ошибка отправки');
+//         }
+//     };
+//     let data = {
+//         name,
+//         email,
+//         telegram,
+//         speciality
+//     };
+//     xhr.send(JSON.stringify(data));
+// });
